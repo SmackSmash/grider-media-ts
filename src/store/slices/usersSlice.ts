@@ -7,10 +7,14 @@ interface User {
 
 interface UsersState {
   data: User[];
+  isLoading: boolean;
+  error: null | string;
 }
 
 const initialState: UsersState = {
-  data: []
+  data: [],
+  isLoading: false,
+  error: null
 };
 
 const usersSlice = createSlice({

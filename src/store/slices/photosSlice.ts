@@ -8,10 +8,14 @@ interface Photo {
 
 interface PhotosState {
   data: Photo[];
+  isLoading: boolean;
+  error: null | string;
 }
 
 const initialState: PhotosState = {
-  data: []
+  data: [],
+  isLoading: false,
+  error: null
 };
 
 const photosSlice = createSlice({

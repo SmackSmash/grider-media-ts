@@ -8,10 +8,14 @@ interface Album {
 
 interface AlbumsState {
   data: Album[];
+  isLoading: boolean;
+  error: null | string;
 }
 
 const initialState: AlbumsState = {
-  data: []
+  data: [],
+  isLoading: false,
+  error: null
 };
 
 const albumsSlice = createSlice({
