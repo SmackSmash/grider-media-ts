@@ -2,8 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import users from './slices/usersSlice';
 
+import albums from './slices/albumsSlice';
+
+import photos from './slices/photosSlice';
+
 const store = configureStore({
-  reducer: { users }
+  reducer: { users, albums, photos }
 });
 
 export default store;
