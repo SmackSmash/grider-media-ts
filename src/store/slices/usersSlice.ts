@@ -1,5 +1,5 @@
 import { SerializedError, createSlice } from '@reduxjs/toolkit';
-import fetchUsers from '../thunks/fetchUsers';
+import { fetchUsers } from '../thunks/fetchUsers';
 
 interface User {
   name: string;

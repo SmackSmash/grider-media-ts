@@ -6,6 +6,8 @@ import albums from './slices/albumsSlice';
 
 import photos from './slices/photosSlice';
 
+export * from './thunks/fetchUsers';
+
 const store = configureStore({
   reducer: { users, albums, photos }
 });
