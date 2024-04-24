@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import fetchUsers from '../thunks/fetchUsers';
 
 interface User {
   name: string;
@@ -20,7 +21,12 @@ const initialState: UsersState = {
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {}
+  reducers: {},
+  extraReducers: builder => {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.data = action.payload;
+    });
+  }
 });
 
 export default usersSlice.reducer;
