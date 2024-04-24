@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import test from './slices/testSlice.ts';
-export { addValue } from './slices/testSlice.ts';
+import test from './slices/testSlice';
+export { addValue } from './slices/testSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,3 +10,7 @@ const store = configureStore({
 });
 
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export * from './hooks';
