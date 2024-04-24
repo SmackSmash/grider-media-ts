@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface usersState {
-  data: string[];
+interface User {
+  name: string;
+  id: string;
 }
 
-const initialState: usersState = {
+interface UsersState {
+  data: User[];
+}
+
+const initialState: UsersState = {
   data: []
 };
 
