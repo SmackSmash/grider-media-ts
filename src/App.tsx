@@ -1,10 +1,9 @@
-import Panel from './components/Panel';
+import UsersList from './components/UsersList';
 
 const App = () => {
   return (
-    <main className='p-4'>
-      <h1>App works</h1>
-      <Panel className='text-black'>Some panel content</Panel>
+    <main className='p-4 container mx-auto'>
+      <UsersList />
     </main>
   );
 };
