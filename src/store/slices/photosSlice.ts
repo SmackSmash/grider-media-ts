@@ -1,6 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: string[] = [];
+interface Photo {
+  id: string;
+  url: string;
+  albumId: string;
+}
+
+interface PhotosState {
+  data: Photo[];
+}
+
+const initialState: PhotosState = {
+  data: []
+};
 
 const photosSlice = createSlice({
   name: 'photos',
