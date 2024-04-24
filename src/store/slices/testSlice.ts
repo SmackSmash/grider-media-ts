@@ -1,15 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState: string[] = [];
+
 const testSlice = createSlice({
   name: 'test',
-  initialState: 'Just a quick test',
+  initialState,
   reducers: {
-    changeValue: state => {
-      state = 'Look I can change!';
-      return state;
+    addValue: (state, action) => {
+      state.push(action.payload);
     }
   }
 });
 
 export default testSlice.reducer;
-export const { changeValue } = testSlice.actions;
+export const { addValue } = testSlice.actions;
