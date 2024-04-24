@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: string[] = [];
+interface usersState {
+  data: string[];
+}
+
+const initialState: usersState = {
+  data: []
+};
 
 const usersSlice = createSlice({
   name: 'users',
