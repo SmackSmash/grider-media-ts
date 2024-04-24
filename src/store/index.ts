@@ -1,12 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import test from './slices/testSlice';
-export { addValue } from './slices/testSlice';
-
 const store = configureStore({
-  reducer: {
-    test
-  }
+  reducer: {}
 });
 
 export default store;
