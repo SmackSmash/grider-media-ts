@@ -9,7 +9,7 @@ interface Photo {
 interface PhotosState {
   data: Photo[];
   isLoading: boolean;
-  error: null | string;
+  error: null | Error;
 }
 
 const initialState: PhotosState = {

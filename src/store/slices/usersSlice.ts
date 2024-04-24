@@ -8,7 +8,7 @@ interface User {
 interface UsersState {
   data: User[];
   isLoading: boolean;
-  error: null | string;
+  error: null | Error;
 }
 
 const initialState: UsersState = {

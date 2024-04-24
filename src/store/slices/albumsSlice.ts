@@ -9,7 +9,7 @@ interface Album {
 interface AlbumsState {
   data: Album[];
   isLoading: boolean;
-  error: null | string;
+  error: null | Error;
 }
 
 const initialState: AlbumsState = {
