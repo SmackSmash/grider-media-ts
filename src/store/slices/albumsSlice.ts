@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { SerializedError, createSlice } from '@reduxjs/toolkit';
 
 interface Album {
   id: string;
@@ -9,7 +9,7 @@ interface Album {
 interface AlbumsState {
   data: Album[];
   isLoading: boolean;
-  error: null | Error;
+  error: null | SerializedError;
 }
 
 const initialState: AlbumsState = {

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { SerializedError, createSlice } from '@reduxjs/toolkit';
 
 interface Photo {
   id: string;
@@ -9,7 +9,7 @@ interface Photo {
 interface PhotosState {
   data: Photo[];
   isLoading: boolean;
-  error: null | Error;
+  error: null | SerializedError;
 }
 
 const initialState: PhotosState = {
