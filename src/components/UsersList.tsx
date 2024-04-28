@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { fetchUsers } from '../store';
 import { useAppDispatch, useAppSelector } from '../store';
-// import Skeleton from './Skeleton';
+import Skeleton from './Skeleton';
 
 const UsersList = () => {
   const users = useAppSelector(({ users: { data } }) => data);
@@ -14,12 +14,8 @@ const UsersList = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  console.log(new Array(5).fill(0));
-
-  // return <Skeleton times={5} />;
-
   if (isLoading) {
-    return <p>Loading users...</p>;
+    return <Skeleton times={5} className='h-10 w-full m-2' />;
   }
 
   if (error) {
