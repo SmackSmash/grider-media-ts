@@ -8,12 +8,12 @@ import photos from './slices/photosSlice';
 
 export * from './thunks/fetchUsers';
 
-const store = configureStore({
-  reducer: { users, albums, photos }
-});
-
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export * from './hooks';
+
+const store = configureStore({
+  reducer: { users, albums, photos }
+});
 
 export default store;
