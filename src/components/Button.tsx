@@ -26,8 +26,7 @@ function Button({
   const classes = className(rest.className, 'flex items-center px-3 py-1.5', {
     'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
       primary,
-    'border-poimandres-darks late bg-poimandres-darks late text-white':
-      secondary,
+    'border-poimandres-darkslate bg-poimandres-darkslate text-white': secondary,
     'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
       success,
     'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
