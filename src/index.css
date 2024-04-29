@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-sky-950 text-slate-200;
+    @apply bg-poimandres-blackslate text-slate-200;
   }
 }
