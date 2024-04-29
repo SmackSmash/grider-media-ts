@@ -7,6 +7,7 @@ import albums from './slices/albumsSlice';
 import photos from './slices/photosSlice';
 
 export * from './thunks/fetchUsers';
+export * from './thunks/addUser';
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
