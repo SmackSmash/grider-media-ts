@@ -1,4 +1,4 @@
-import { SerializedError, createSlice } from '@reduxjs/toolkit';
+import { type SerializedError, createSlice } from '@reduxjs/toolkit';
 import { fetchUsers } from '../thunks/fetchUsers';
 import { addUser } from '../thunks/addUser';
 
