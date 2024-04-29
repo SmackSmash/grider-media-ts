@@ -4,7 +4,9 @@ import Button from './components/Button';
 const App = () => {
   return (
     <main className='p-4 container mx-auto'>
-      <Button primary>Hello there</Button>
+      <Button secondary rounded>
+        Hello there
+      </Button>
       <UsersList />
     </main>
   );

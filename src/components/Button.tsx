@@ -23,25 +23,24 @@ function Button({
   rounded,
   ...rest
 }: ButtonProps) {
-  const classes = className(
-    rest.className,
-    'flex items-center px-3 py-1.5 border',
-    {
-      'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
-        primary,
-      'border-gray-900 bg-gray-900 text-white': secondary,
-      'border-green-500 bg-green-500 text-white': success,
-      'border-yellow-400 bg-yellow-400 text-white': warning,
-      'border-red-500 bg-red-500 text-white': danger,
-      'rounded-full': rounded,
-      'bg-white': outline,
-      'text-blue-500': outline && primary,
-      'text-gray-900': outline && secondary,
-      'text-green-500': outline && success,
-      'text-yellow-400': outline && warning,
-      'text-red-500': outline && danger
-    }
-  );
+  const classes = className(rest.className, 'flex items-center px-3 py-1.5', {
+    'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
+      primary,
+    'border-poimandres-darks late bg-poimandres-darks late text-white':
+      secondary,
+    'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
+      success,
+    'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
+      warning,
+    'border-poimandres-darkpink bg-poimandres-darkpink text-white': danger,
+    'rounded-full': rounded,
+    'bg-white': outline,
+    'text-blue-500': outline && primary,
+    'text-gray-900': outline && secondary,
+    'text-green-500': outline && success,
+    'text-yellow-400': outline && warning,
+    'text-red-500': outline && danger
+  });
 
   return (
     <button className={classes} {...rest}>
