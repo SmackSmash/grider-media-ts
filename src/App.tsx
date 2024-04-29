@@ -15,7 +15,7 @@ const App = () => {
       <header className='flex justify-between items-center border-b-2 border-poimandres-darkgreen mb-4 pb-4'>
         <h1 className='text-2xl font-bold'>User List</h1>
         <Button success onClick={handleClick}>
-          Add user
+          + Add User
         </Button>
       </header>
       <UsersList />
