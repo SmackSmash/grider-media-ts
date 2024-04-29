@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "name": "Steven Pointer",
-      "id": "aasdasda"
-    },
-    {
-      "name": "Jane McDougherty",
-      "id": "jndksnfdnf"
-    },
-    {
       "id": "TUP6wIpr9D9RZWvemECWg",
       "name": "Glen Stroman"
     },
@@ -27,10 +19,6 @@
     {
       "id": "Zni98gHZuh2HF3jXpOr13",
       "name": "Miss Miriam Mayert"
-    },
-    {
-      "id": "RqFEcWAVgtDiVJyMC1--q",
-      "name": "Dr. Kristie Zemlak PhD"
     }
   ],
   "albums": [],

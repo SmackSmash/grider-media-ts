@@ -25,7 +25,13 @@ const UsersList = () => {
   return (
     <div>
       {users.length
-        ? users.map(({ name, id }) => <h1 key={id}>{name}</h1>)
+        ? users.map(({ name, id }) => (
+            <span
+              className='flex h-10 w-full p-2 my-2 items-center bg-poimandres-darkslate'
+              key={id}>
+              {name}
+            </span>
+          ))
         : 'No users yet'}
     </div>
   );
