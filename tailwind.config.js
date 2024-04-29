@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        fira: ['"Fira Code"', 'Courier New', 'mono']
+      },
       colors: {
         'poimandres-yellow': '#FFFAC2',
         'poimandres-lightgreen': '#5DE4C7',

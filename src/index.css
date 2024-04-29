@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-poimandres-blackslate text-slate-200;
+    @apply bg-poimandres-blackslate text-poimandres-white font-fira;
   }
 }
