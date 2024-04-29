@@ -12,9 +12,12 @@ const App = () => {
 
   return (
     <main className='p-4 container mx-auto'>
-      <Button primary onClick={handleClick}>
-        Add user
-      </Button>
+      <header className='flex justify-between items-center border-b-2 border-poimandres-darkgreen mb-4 pb-4'>
+        <h1 className='text-2xl font-bold'>User List</h1>
+        <Button success onClick={handleClick}>
+          Add user
+        </Button>
+      </header>
       <UsersList />
     </main>
   );
