@@ -1,5 +1,6 @@
 import { type PropsWithChildren, type ComponentPropsWithoutRef } from 'react';
 import className from 'classnames';
+import { GoSync } from 'react-icons/go';
 
 type ButtonProps = PropsWithChildren<{
   primary?: boolean;
@@ -9,6 +10,7 @@ type ButtonProps = PropsWithChildren<{
   danger?: boolean;
   outline?: boolean;
   rounded?: boolean;
+  loading?: boolean;
 }> &
   ComponentPropsWithoutRef<'button'>;
 
@@ -21,30 +23,35 @@ function Button({
   danger,
   outline,
   rounded,
+  loading,
   ...rest
 }: ButtonProps) {
-  const classes = className(rest.className, 'flex items-center px-3 py-1.5', {
-    'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
-      primary,
-    'border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate':
-      secondary,
-    'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
-      success,
-    'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
-      warning,
-    'border-poimandres-lightpink bg-poimandres-lightpink text-white': danger,
-    'rounded-full': rounded,
-    'bg-white': outline,
-    'text-blue-500': outline && primary,
-    'text-gray-900': outline && secondary,
-    'text-green-500': outline && success,
-    'text-yellow-400': outline && warning,
-    'text-red-500': outline && danger
-  });
+  const classes = className(
+    rest.className,
+    'flex items-center px-3 py-1.5 h-10 w-40 justify-center',
+    {
+      'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
+        primary,
+      'border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate':
+        secondary,
+      'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
+        success,
+      'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
+        warning,
+      'border-poimandres-lightpink bg-poimandres-lightpink text-white': danger,
+      'rounded-full': rounded,
+      'bg-white': outline,
+      'text-blue-500': outline && primary,
+      'text-gray-900': outline && secondary,
+      'text-green-500': outline && success,
+      'text-yellow-400': outline && warning,
+      'text-red-500': outline && danger
+    }
+  );
 
   return (
-    <button className={classes} {...rest}>
-      {children}
+    <button disabled={loading} className={classes} {...rest}>
+      {loading ? <GoSync className='animate-spin' /> : children}
     </button>
   );
 }

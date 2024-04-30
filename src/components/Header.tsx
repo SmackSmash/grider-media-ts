@@ -17,8 +17,8 @@ const Header = () => {
           {creatingUserError.message}
         </span>
       ) : (
-        <Button success onClick={handleClick}>
-          {isCreatingUser ? 'Creating...' : '+ Add User'}
+        <Button success loading={isCreatingUser} onClick={handleClick}>
+          + Add User
         </Button>
       )}
     </header>
