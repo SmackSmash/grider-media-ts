@@ -16,7 +16,7 @@ const Header = () => {
     (async () => {
       setIsCreatingUser(true);
       try {
-        await dispatch(addUser());
+        await dispatch(addUser()).unwrap();
       } catch (error) {
         setCreatingUserError(error as AxiosError);
       } finally {
@@ -32,7 +32,7 @@ const Header = () => {
         creatingUserError.message
       ) : (
         <Button success onClick={handleClick}>
-          + Add User
+          {isCreatingUser ? 'Creating...' : '+ Add User'}
         </Button>
       )}
     </header>
