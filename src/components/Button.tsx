@@ -38,7 +38,7 @@ function Button({
         success,
       'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
         warning,
-      'border-poimandres-lightpink bg-poimandres-lightpink text-white': danger,
+      'border-poimandres-darkpink bg-poimandres-darkpink text-white': danger,
       'rounded-full': rounded,
       'bg-white': outline,
       'text-blue-500': outline && primary,
