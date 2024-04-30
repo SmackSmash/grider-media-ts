@@ -13,7 +13,7 @@ const useThunk = (thunk: AsyncThunk<string, void, object>): UseThunkReturns => {
 
   const dispatch = useAppDispatch();
 
-  const doThunk = useCallback(async (): Promise<void> => {
+  const doThunk = useCallback(async () => {
     setIsLoadingThunk(true);
     try {
       await dispatch(thunk()).unwrap();
