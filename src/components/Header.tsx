@@ -1,28 +1,12 @@
-import { useState } from 'react';
-import { useAppDispatch } from '../store';
 import { addUser } from '../store';
 import Button from './Button';
-import { type AxiosError } from 'axios';
+import useThunk from '../hooks/useThunk';
 
 const Header = () => {
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState<AxiosError | null>(
-    null
-  );
-
-  const dispatch = useAppDispatch();
+  const [doAddUser, isCreatingUser, creatingUserError] = useThunk(addUser);
 
   const handleClick = () => {
-    (async () => {
-      setIsCreatingUser(true);
-      try {
-        await dispatch(addUser()).unwrap();
-      } catch (error) {
-        setCreatingUserError(error as AxiosError);
-      } finally {
-        setIsCreatingUser(false);
-      }
-    })();
+    doAddUser();
   };
 
   return (
