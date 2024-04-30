@@ -1,31 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchUsers } from '../store';
-import { useAppDispatch, useAppSelector } from '../store';
+import { useAppSelector } from '../store';
 import Skeleton from './Skeleton';
-import { type AxiosError } from 'axios';
+import useThunk from '../hooks/useThunk';
 
 const UsersList = () => {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersError] = useState<AxiosError | null>(
-    null
-  );
-
   const users = useAppSelector(({ users: { data } }) => data);
-
-  const dispatch = useAppDispatch();
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+    useThunk(fetchUsers);
 
   useEffect(() => {
-    (async () => {
-      setIsLoadingUsers(true);
-      try {
-        await dispatch(fetchUsers()).unwrap();
-      } catch (error) {
-        setLoadingUsersError(error as AxiosError);
-      } finally {
-        setIsLoadingUsers(false);
-      }
-    })();
-  }, [dispatch]);
+    doFetchUsers();
+  }, [doFetchUsers]);
 
   if (isLoadingUsers) {
     return <Skeleton times={5} className='h-10 w-full my-2' />;
