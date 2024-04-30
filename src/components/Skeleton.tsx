@@ -9,9 +9,9 @@ const Skeleton = ({
     .fill(0)
     .map((_, i) => (
       <div
-        className={`${className} bg-slate-800 overflow-hidden relative`}
+        className={`${className} bg-poimandres-darkslate overflow-hidden relative`}
         key={i}>
-        <div className='inset-0 absolute -translate-x-full bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 animate-shimmer'></div>
+        <div className='inset-0 absolute -translate-x-full bg-gradient-to-r from-poimandres-darkslate via-poimandres-blackslate to-poimandres-darkslate animate-shimmer'></div>
       </div>
     ));
 };
