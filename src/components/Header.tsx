@@ -29,7 +29,9 @@ const Header = () => {
     <header className='flex justify-between items-center border-b-2 border-poimandres-darkgreen mb-4 pb-4'>
       <h1 className='text-2xl font-bold'>User List</h1>
       {creatingUserError ? (
-        creatingUserError.message
+        <span className='text-poimandres-lightpink'>
+          {creatingUserError.message}
+        </span>
       ) : (
         <Button success onClick={handleClick}>
           {isCreatingUser ? 'Creating...' : '+ Add User'}

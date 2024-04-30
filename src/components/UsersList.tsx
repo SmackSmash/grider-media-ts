@@ -32,7 +32,11 @@ const UsersList = () => {
   }
 
   if (loadingUsersError) {
-    return <p>{loadingUsersError.message}</p>;
+    return (
+      <span className='text-poimandres-lightpink'>
+        {loadingUsersError.message}
+      </span>
+    );
   }
 
   return (
