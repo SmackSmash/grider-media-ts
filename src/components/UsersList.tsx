@@ -9,8 +9,7 @@ const UsersList = () => {
   const users = useAppSelector(({ users: { data } }) => data);
   const [doFetchUsers, isLoadingUsers, loadingUsersError] =
     useThunk(fetchUsers);
-  const [doDeleteUser, isDeletingUser, deletingUserError] =
-    useThunk(deleteUser);
+  const [doDeleteUser] = useThunk(deleteUser);
 
   useEffect(() => {
     doFetchUsers();
