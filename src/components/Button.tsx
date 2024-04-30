@@ -1,6 +1,6 @@
 import { type PropsWithChildren, type ComponentPropsWithoutRef } from 'react';
 import className from 'classnames';
-import { GoSync } from 'react-icons/go';
+import { ImSpinner2 } from 'react-icons/im';
 
 type ButtonProps = PropsWithChildren<{
   primary?: boolean;
@@ -51,7 +51,7 @@ function Button({
 
   return (
     <button disabled={loading} className={classes} {...rest}>
-      {loading ? <GoSync className='animate-spin' /> : children}
+      {loading ? <ImSpinner2 className='animate-spin' /> : children}
     </button>
   );
 }
