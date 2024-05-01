@@ -2,7 +2,6 @@ import Button from './Button';
 import ExpandablePanel from './ExpandablePanel';
 import useThunk from '../hooks/useThunk';
 import { deleteUser } from '../store';
-import { FaAngleDown } from 'react-icons/fa';
 import { type MouseEvent } from 'react';
 
 interface UsersListItemProps {
@@ -21,11 +20,9 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
 
   const header = (
     <>
-      <div className='flex items-center'>
-        <FaAngleDown className='mr-2' />
-        {name}
-      </div>
+      {name}
       <Button
+        className='ml-auto'
         danger
         loading={isDeletingUser}
         onClick={e => handleDelete(id, e)}>

@@ -1,4 +1,5 @@
 import { useState, type PropsWithChildren, type ReactNode } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 
 type ExpandablePanelProps = PropsWithChildren<{
   header: ReactNode;
@@ -14,8 +15,9 @@ const ExpandablePanel = ({ header, children }: ExpandablePanelProps) => {
   return (
     <div className='border border-poimandres-midslate mb-4'>
       <div
-        className='flex h-10 w-full pl-2 items-center justify-between hover:bg-poimandres-darkslate hover:cursor-pointer'
+        className='flex flex-row h-10 w-full pl-2 items-center hover:bg-poimandres-darkslate hover:cursor-pointer'
         onClick={handleClick}>
+        <FaAngleDown className='mr-2' />
         {header}
       </div>
       {panelOpen && (

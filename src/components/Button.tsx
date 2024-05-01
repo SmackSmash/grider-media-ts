@@ -1,5 +1,5 @@
 import { type PropsWithChildren, type ComponentPropsWithoutRef } from 'react';
-import className from 'classnames';
+import classNames from 'classnames';
 import { ImSpinner2 } from 'react-icons/im';
 
 type ButtonProps = PropsWithChildren<{
@@ -11,6 +11,7 @@ type ButtonProps = PropsWithChildren<{
   outline?: boolean;
   rounded?: boolean;
   loading?: boolean;
+  className?: string;
 }> &
   ComponentPropsWithoutRef<'button'>;
 
@@ -24,10 +25,11 @@ function Button({
   outline,
   rounded,
   loading,
+  className,
   ...rest
 }: ButtonProps) {
-  const classes = className(
-    rest.className,
+  const classes = classNames(
+    className,
     'flex items-center px-3 py-1.5 h-10 w-40 justify-center brightness-90 hover:brightness-100',
     {
       'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
