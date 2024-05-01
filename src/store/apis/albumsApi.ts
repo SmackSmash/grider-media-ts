@@ -8,10 +8,10 @@ interface Album {
 
 const albumsApi = createApi({
   reducerPath: 'albums',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost/3000/albums/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
   endpoints: builder => {
     getAlbumsById: builder.query<Album, string>({
-      query: userId => `userId=${userId}`
+      query: userId => `albums/userId=${userId}`
     });
   }
 });
