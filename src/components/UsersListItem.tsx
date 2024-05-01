@@ -1,8 +1,9 @@
 import Button from './Button';
+import ExpandablePanel from './ExpandablePanel';
 import useThunk from '../hooks/useThunk';
 import { deleteUser } from '../store';
 import { FaAngleDown } from 'react-icons/fa';
-import { type MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
 
 interface UsersListItemProps {
   name: string;
@@ -10,6 +11,7 @@ interface UsersListItemProps {
 }
 
 const UsersListItem = ({ name, id }: UsersListItemProps) => {
+  const [panelOpen, setPanelOpen] = useState(false);
   const [doDeleteUser, isDeletingUser, deletingUserError] =
     useThunk(deleteUser);
 
@@ -19,10 +21,10 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
   };
 
   const handleClick = () => {
-    console.log('clicked');
+    setPanelOpen(!panelOpen);
   };
 
-  return (
+  const header = (
     <div
       className='flex h-10 w-full pl-2 my-2 items-center justify-between hover:bg-poimandres-darkslate hover:cursor-pointer'
       onClick={handleClick}>
@@ -37,6 +39,12 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
         {deletingUserError ? 'Oopsy!' : 'Delete'}
       </Button>
     </div>
+  );
+
+  return (
+    <ExpandablePanel header={header}>
+      {panelOpen && <div>Records!</div>}
+    </ExpandablePanel>
   );
 };
 
