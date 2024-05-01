@@ -28,7 +28,7 @@ function Button({
 }: ButtonProps) {
   const classes = className(
     rest.className,
-    'flex items-center px-3 py-1.5 h-10 w-40 justify-center',
+    'flex items-center px-3 py-1.5 h-10 w-40 justify-center brightness-90 hover:brightness-100',
     {
       'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
         primary,
