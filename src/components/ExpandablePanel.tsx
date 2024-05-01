@@ -12,13 +12,17 @@ const ExpandablePanel = ({ header, children }: ExpandablePanelProps) => {
   };
 
   return (
-    <div>
+    <div className='border border-poimandres-midslate mb-4'>
       <div
-        className='flex h-10 w-full pl-2 my-2 items-center justify-between hover:bg-poimandres-darkslate hover:cursor-pointer'
+        className='flex h-10 w-full pl-2 items-center justify-between hover:bg-poimandres-darkslate hover:cursor-pointer'
         onClick={handleClick}>
         {header}
       </div>
-      {panelOpen && <div className='p-2 border-t'>{children}</div>}
+      {panelOpen && (
+        <div className='p-2 border-t border-poimandres-midslate'>
+          {children}
+        </div>
+      )}
     </div>
   );
 };
