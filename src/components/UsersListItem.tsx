@@ -16,9 +16,7 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
   };
 
   return (
-    <div
-      className='flex h-10 w-full pl-2 my-2 items-center bg-poimandres-darkslate justify-between'
-      key={id}>
+    <div className='flex h-10 w-full pl-2 my-2 items-center bg-poimandres-darkslate justify-between'>
       {name}
       <Button danger loading={isDeletingUser} onClick={() => handleClick(id)}>
         {deletingUserError ? 'Oopsy!' : 'Delete'}

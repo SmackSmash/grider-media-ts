@@ -29,7 +29,9 @@ const UsersList = () => {
   return (
     <div>
       {users.length
-        ? users.map(({ name, id }) => <UsersListItem name={name} id={id} />)
+        ? users.map(({ name, id }) => (
+            <UsersListItem name={name} id={id} key={id} />
+          ))
         : 'No users yet'}
     </div>
   );
