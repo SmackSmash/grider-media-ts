@@ -9,6 +9,6 @@ export const addUser = createAsyncThunk('users/add', async () => {
     name: faker.person.fullName(),
     id: nanoid()
   });
-  await delay(1000);
+  await delay(300);
   return response.data;
 });
