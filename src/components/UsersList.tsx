@@ -15,7 +15,7 @@ const UsersList = () => {
   }, [doFetchUsers]);
 
   if (isLoadingUsers) {
-    return <Skeleton times={5} className='h-10 w-full my-2' />;
+    return <Skeleton times={5} className='h-10 w-full mt-2 mb-4' />;
   }
 
   if (loadingUsersError) {
