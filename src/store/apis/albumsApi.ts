@@ -1,3 +1,19 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const albumsApi = createApi({});
+interface Album {
+  id: string;
+  title: string;
+  userId: string;
+}
+
+const albumsApi = createApi({
+  reducerPath: 'albums',
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost/3000/albums/' }),
+  endpoints: builder => {
+    getAlbumsById: builder.query<Album, string>({
+      query: userId => `userId=${userId}`
+    });
+  }
+});
+
+export default albumsApi;
