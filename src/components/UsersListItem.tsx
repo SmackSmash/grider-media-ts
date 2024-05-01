@@ -11,14 +11,14 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
   const [doDeleteUser, isDeletingUser, deletingUserError] =
     useThunk(deleteUser);
 
-  const handleClick = (id: string) => {
+  const handleDelete = (id: string) => {
     doDeleteUser(id);
   };
 
   return (
-    <div className='flex h-10 w-full pl-2 my-2 items-center bg-poimandres-darkslate justify-between'>
+    <div className='flex h-10 w-full pl-2 my-2 items-center bg-poimandres-darkslate justify-between hover:bg-poimandres-darkerblue hover:cursor-pointer'>
       {name}
-      <Button danger loading={isDeletingUser} onClick={() => handleClick(id)}>
+      <Button danger loading={isDeletingUser} onClick={() => handleDelete(id)}>
         {deletingUserError ? 'Oopsy!' : 'Delete'}
       </Button>
     </div>
