@@ -8,9 +8,10 @@ const Skeleton = ({ times, className }: SkeletonProps) => {
     .fill(0)
     .map((_, i) => (
       <div
-        className={`${className} bg-poimandres-darkslate overflow-hidden relative`}
-        key={i}>
-        <div className='inset-0 absolute -translate-x-full bg-gradient-to-r from-poimandres-darkslate via-poimandres-blackslate to-poimandres-darkslate animate-shimmer'></div>
+        className={`${className} relative overflow-hidden bg-poimandres-darkslate`}
+        key={i}
+      >
+        <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-poimandres-darkslate via-poimandres-blackslate to-poimandres-darkslate"></div>
       </div>
     ));
 };

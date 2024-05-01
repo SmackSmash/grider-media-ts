@@ -1,5 +1,5 @@
-import { useState, type PropsWithChildren, type ReactNode } from 'react';
-import { FaAngleDown, FaAngleLeft } from 'react-icons/fa';
+import { useState, type PropsWithChildren, type ReactNode } from "react";
+import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 
 type ExpandablePanelProps = PropsWithChildren<{
   header: ReactNode;
@@ -13,19 +13,20 @@ const ExpandablePanel = ({ header, children }: ExpandablePanelProps) => {
   };
 
   return (
-    <div className='border border-poimandres-midslate mb-4'>
+    <div className="mb-4 border border-poimandres-midslate">
       <div
-        className='flex flex-row h-10 w-full pl-2 items-center hover:bg-poimandres-darkslate hover:cursor-pointer'
-        onClick={handleClick}>
+        className="flex h-10 w-full flex-row items-center pl-2 hover:cursor-pointer hover:bg-poimandres-darkslate"
+        onClick={handleClick}
+      >
         {expanded ? (
-          <FaAngleLeft className='mr-2' />
+          <FaAngleLeft className="mr-2" />
         ) : (
-          <FaAngleDown className='mr-2' />
+          <FaAngleDown className="mr-2" />
         )}
         {header}
       </div>
       {expanded && (
-        <div className='p-2 border-t border-poimandres-midslate'>
+        <div className="border-t border-poimandres-midslate p-2">
           {children}
         </div>
       )}

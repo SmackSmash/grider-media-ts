@@ -1,6 +1,6 @@
-import { addUser } from '../store';
-import Button from './Button';
-import useThunk from '../hooks/useThunk';
+import { addUser } from "../store";
+import Button from "./Button";
+import useThunk from "../hooks/useThunk";
 
 const Header = () => {
   const [doAddUser, isCreatingUser, creatingUserError] = useThunk(addUser);
@@ -10,10 +10,10 @@ const Header = () => {
   };
 
   return (
-    <header className='flex justify-between items-center border-b-2 border-poimandres-darkgreen mb-4 pb-4'>
-      <h1 className='text-2xl font-bold'>User List</h1>
+    <header className="mb-4 flex items-center justify-between border-b-2 border-poimandres-darkgreen pb-4">
+      <h1 className="text-2xl font-bold">User List</h1>
       {creatingUserError ? (
-        <span className='text-poimandres-lightpink'>
+        <span className="text-poimandres-lightpink">
           {creatingUserError.message}
         </span>
       ) : (

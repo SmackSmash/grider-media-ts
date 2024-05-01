@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { fetchUsers } from '../store';
-import { useAppSelector } from '../store';
-import Skeleton from './Skeleton';
-import useThunk from '../hooks/useThunk';
-import UsersListItem from './UsersListItem';
+import { useEffect } from "react";
+import { fetchUsers } from "../store";
+import { useAppSelector } from "../store";
+import Skeleton from "./Skeleton";
+import useThunk from "../hooks/useThunk";
+import UsersListItem from "./UsersListItem";
 
 const UsersList = () => {
   const users = useAppSelector(({ users: { data } }) => data);
@@ -15,12 +15,12 @@ const UsersList = () => {
   }, [doFetchUsers]);
 
   if (isLoadingUsers) {
-    return <Skeleton times={5} className='h-10 w-full mt-2 mb-4' />;
+    return <Skeleton times={5} className="mb-4 mt-2 h-10 w-full" />;
   }
 
   if (loadingUsersError) {
     return (
-      <span className='text-poimandres-lightpink'>
+      <span className="text-poimandres-lightpink">
         {loadingUsersError.message}
       </span>
     );
@@ -32,7 +32,7 @@ const UsersList = () => {
         ? users.map(({ name, id }) => (
             <UsersListItem name={name} id={id} key={id} />
           ))
-        : 'No users yet'}
+        : "No users yet"}
     </div>
   );
 };
