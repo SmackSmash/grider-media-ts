@@ -11,13 +11,16 @@ const albumsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }),
   endpoints: (builder) => ({
     getAlbumsByUserId: builder.query<Album, string>({
-      query: (userId) => `albums?userId=${userId}`,
+      query: (userId) => ({
+        url: `albums?userId=${userId}`,
+        method: "GET",
+      }),
     }),
     createAlbum: builder.query<Album, string>({
-      query: () => "albums",
+      query: () => ({ url: "albums", method: "POST" }),
     }),
     deleteAlbum: builder.query<Album, string>({
-      query: (id) => `albums/${id}`,
+      query: (id) => ({ url: `albums/${id}`, method: "DELETE" }),
     }),
   }),
 });
