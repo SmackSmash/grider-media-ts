@@ -3,7 +3,7 @@ interface AlbumsListProps {
 }
 
 const AlbumsList = ({ id }: AlbumsListProps) => {
-  return <div>Albums List</div>;
+  return <div>Albums for user with id {id}</div>;
 };
 
 export default AlbumsList;

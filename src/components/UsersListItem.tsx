@@ -3,6 +3,7 @@ import ExpandablePanel from './ExpandablePanel';
 import useThunk from '../hooks/useThunk';
 import { deleteUser } from '../store';
 import { type MouseEvent } from 'react';
+import AlbumsList from './AlbumsList';
 
 interface UsersListItemProps {
   name: string;
@@ -31,7 +32,11 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
     </>
   );
 
-  return <ExpandablePanel header={header}>Records!</ExpandablePanel>;
+  return (
+    <ExpandablePanel header={header}>
+      <AlbumsList id={id} />
+    </ExpandablePanel>
+  );
 };
 
 export default UsersListItem;
