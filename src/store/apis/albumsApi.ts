@@ -7,6 +7,7 @@ interface Album {
 }
 
 const albumsApi = createApi({
+  // Does this work?
   reducerPath: 'albums',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
   endpoints: builder => ({
