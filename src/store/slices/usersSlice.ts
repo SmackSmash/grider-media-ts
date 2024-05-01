@@ -60,6 +60,10 @@ const usersSlice = createSlice({
         1
       );
     });
+    builder.addCase(deleteUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error;
+    });
   }
 });
 
