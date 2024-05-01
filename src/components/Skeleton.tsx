@@ -1,10 +1,9 @@
-const Skeleton = ({
-  times,
-  className
-}: {
+interface SkeletonProps {
   times: number;
   className: string;
-}) => {
+}
+
+const Skeleton = ({ times, className }: SkeletonProps) => {
   return Array(times)
     .fill(0)
     .map((_, i) => (
