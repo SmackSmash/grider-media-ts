@@ -12,8 +12,8 @@ const albumsApi = createApi({
   endpoints: builder => ({
     getAlbumsById: builder.query<Album, string>({
       query: userId => `albums/userId=${userId}`
-    });
-  });
+    })
+  })
 });
 
 export default albumsApi;
