@@ -1,6 +1,6 @@
-import { addUser } from "../store";
-import Button from "./Button";
-import useThunk from "../hooks/useThunk";
+import { addUser } from '../store';
+import Button from './Button';
+import useThunk from '../hooks/useThunk';
 
 const Header = () => {
   const [doAddUser, isCreatingUser, creatingUserError] = useThunk(addUser);

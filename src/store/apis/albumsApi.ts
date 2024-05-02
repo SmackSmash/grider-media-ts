@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface Album {
   id: string;
@@ -7,28 +7,28 @@ interface Album {
 }
 
 const albumsApi = createApi({
-  reducerPath: "albums",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }),
-  endpoints: (builder) => ({
+  reducerPath: 'albums',
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
+  endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album, string>({
-      query: (userId) => ({
+      query: userId => ({
         url: `albums?userId=${userId}`,
-        method: "GET",
-      }),
+        method: 'GET'
+      })
     }),
     createAlbum: builder.query<Album, string>({
-      query: () => ({ url: "albums", method: "POST" }),
+      query: () => ({ url: 'albums', method: 'POST' })
     }),
     deleteAlbum: builder.query<Album, string>({
-      query: (id) => ({ url: `albums/${id}`, method: "DELETE" }),
-    }),
-  }),
+      query: id => ({ url: `albums/${id}`, method: 'DELETE' })
+    })
+  })
 });
 
 export const {
   useGetAlbumsByUserIdQuery,
   useCreateAlbumQuery,
-  useDeleteAlbumQuery,
+  useDeleteAlbumQuery
 } = albumsApi;
 
 export default albumsApi;

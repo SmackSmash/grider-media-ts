@@ -5,6 +5,6 @@
 
 @layer base {
   body {
-    @apply bg-poimandres-blackslate text-poimandres-white font-fira;
+    @apply bg-poimandres-blackslate font-fira text-poimandres-white;
   }
 }

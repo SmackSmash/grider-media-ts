@@ -1,6 +1,6 @@
-import { useState, type PropsWithChildren, type ReactNode } from "react";
-import { Transition } from "@headlessui/react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useState, type PropsWithChildren, type ReactNode } from 'react';
+import { Transition } from '@headlessui/react';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
 type ExpandablePanelProps = PropsWithChildren<{
   header: ReactNode;

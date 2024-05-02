@@ -1,6 +1,6 @@
-import { type PropsWithChildren, type ComponentPropsWithoutRef } from "react";
-import classNames from "classnames";
-import { ImSpinner2 } from "react-icons/im";
+import { type PropsWithChildren, type ComponentPropsWithoutRef } from 'react';
+import classNames from 'classnames';
+import { ImSpinner2 } from 'react-icons/im';
 
 type ButtonProps = PropsWithChildren<{
   primary?: boolean;
@@ -13,7 +13,7 @@ type ButtonProps = PropsWithChildren<{
   loading?: boolean;
   className?: string;
 }> &
-  ComponentPropsWithoutRef<"button">;
+  ComponentPropsWithoutRef<'button'>;
 
 function Button({
   children,
@@ -30,25 +30,25 @@ function Button({
 }: ButtonProps) {
   const classes = classNames(
     className,
-    "flex items-center px-3 py-1.5 h-10 w-40 justify-center brightness-90 hover:brightness-100",
+    'flex items-center px-3 py-1.5 h-10 w-40 justify-center brightness-90 hover:brightness-100',
     {
-      "border-poimandres-midslate bg-poimandres-midslate text-poimandres-white":
+      'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
         primary,
-      "border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate":
+      'border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate':
         secondary,
-      "border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate":
+      'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
         success,
-      "border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate":
+      'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
         warning,
-      "border-poimandres-darkpink bg-poimandres-darkpink text-white": danger,
-      "rounded-full": rounded,
-      "bg-white": outline,
-      "text-blue-500": outline && primary,
-      "text-gray-900": outline && secondary,
-      "text-green-500": outline && success,
-      "text-yellow-400": outline && warning,
-      "text-red-500": outline && danger,
-    },
+      'border-poimandres-darkpink bg-poimandres-darkpink text-white': danger,
+      'rounded-full': rounded,
+      'bg-white': outline,
+      'text-blue-500': outline && primary,
+      'text-gray-900': outline && secondary,
+      'text-green-500': outline && success,
+      'text-yellow-400': outline && warning,
+      'text-red-500': outline && danger
+    }
   );
 
   return (

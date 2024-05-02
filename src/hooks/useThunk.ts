@@ -1,14 +1,14 @@
-import { useState, useCallback } from "react";
-import { useAppDispatch } from "../store";
-import { type AxiosError } from "axios";
-import { AsyncThunk } from "@reduxjs/toolkit";
+import { useState, useCallback } from 'react';
+import { useAppDispatch } from '../store';
+import { type AxiosError } from 'axios';
+import { AsyncThunk } from '@reduxjs/toolkit';
 
 type UseThunkReturns = [(id?: string) => void, boolean, AxiosError | null];
 
 const useThunk = (thunk: AsyncThunk<any, any, any>): UseThunkReturns => {
   const [isLoadingThunk, setIsLoadingThunk] = useState(false);
   const [loadingThunkError, setLoadingThunkError] = useState<AxiosError | null>(
-    null,
+    null
   );
 
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ const useThunk = (thunk: AsyncThunk<any, any, any>): UseThunkReturns => {
         setIsLoadingThunk(false);
       }
     },
-    [dispatch, thunk],
+    [dispatch, thunk]
   );
 
   return [doThunk, isLoadingThunk, loadingThunkError];

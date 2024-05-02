@@ -1,5 +1,5 @@
-import { type PropsWithChildren } from "react";
-import classNames from "classnames";
+import { type PropsWithChildren } from 'react';
+import classNames from 'classnames';
 
 type PanelProps = PropsWithChildren<{
   className?: string;
@@ -7,8 +7,8 @@ type PanelProps = PropsWithChildren<{
 
 function Panel({ children, className, ...rest }: PanelProps) {
   const finalClassNames = classNames(
-    "border rounded p-3 shadow bg-white w-full",
-    className,
+    'border rounded p-3 shadow bg-white w-full',
+    className
   );
 
   return (

@@ -1,9 +1,9 @@
-import Button from "./Button";
-import ExpandablePanel from "./ExpandablePanel";
-import useThunk from "../hooks/useThunk";
-import { deleteUser } from "../store";
-import { type MouseEvent } from "react";
-import AlbumsList from "./AlbumsList";
+import Button from './Button';
+import ExpandablePanel from './ExpandablePanel';
+import useThunk from '../hooks/useThunk';
+import { deleteUser } from '../store';
+import { type MouseEvent } from 'react';
+import AlbumsList from './AlbumsList';
 
 interface UsersListItemProps {
   name: string;
@@ -26,9 +26,9 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
         className="ml-auto"
         danger
         loading={isDeletingUser}
-        onClick={(e) => handleDelete(id, e)}
+        onClick={e => handleDelete(id, e)}
       >
-        {deletingUserError ? "Oopsy!" : "Delete"}
+        {deletingUserError ? 'Oopsy!' : 'Delete'}
       </Button>
     </>
   );
