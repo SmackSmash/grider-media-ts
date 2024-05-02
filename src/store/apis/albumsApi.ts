@@ -25,4 +25,8 @@ const albumsApi = createApi({
   }),
 });
 
-export default albumsApi;
+export const {
+  useGetAlbumsByUserIdQuery,
+  useCreateAlbumQuery,
+  useDeleteAlbumQuery,
+} = albumsApi;
