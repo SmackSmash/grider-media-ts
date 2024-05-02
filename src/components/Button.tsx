@@ -32,14 +32,10 @@ function Button({
     className,
     'flex items-center px-3 py-1.5 h-10 w-40 justify-center brightness-90 hover:brightness-100',
     {
-      'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white':
-        primary,
-      'border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate':
-        secondary,
-      'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate':
-        success,
-      'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate':
-        warning,
+      'border-poimandres-midslate bg-poimandres-midslate text-poimandres-white': primary,
+      'border-poimandres-midblue bg-poimandres-midblue text-poimandres-blackslate': secondary,
+      'border-poimandres-lightgreen bg-poimandres-lightgreen text-poimandres-blackslate': success,
+      'border-poimandres-yellow bg-poimandres-yellow text-poimandres-blackslate': warning,
       'border-poimandres-darkpink bg-poimandres-darkpink text-white': danger,
       'rounded-full': rounded,
       'bg-white': outline,
@@ -53,7 +49,7 @@ function Button({
 
   return (
     <button disabled={loading} className={classes} {...rest}>
-      {loading ? <ImSpinner2 className="animate-spin" /> : children}
+      {loading ? <ImSpinner2 className='animate-spin' /> : children}
     </button>
   );
 }

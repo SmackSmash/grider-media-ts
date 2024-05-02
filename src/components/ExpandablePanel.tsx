@@ -14,30 +14,24 @@ const ExpandablePanel = ({ header, children }: ExpandablePanelProps) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className='mb-4'>
       <div
-        className="flex h-10 w-full flex-row items-center border border-poimandres-midslate pl-2 hover:cursor-pointer hover:bg-poimandres-darkslate"
+        className='flex h-10 w-full flex-row items-center border border-poimandres-midslate pl-2 hover:cursor-pointer hover:bg-poimandres-darkslate'
         onClick={handleClick}
       >
-        {expanded ? (
-          <FaAngleUp className="mr-2" />
-        ) : (
-          <FaAngleDown className="mr-2" />
-        )}
+        {expanded ? <FaAngleUp className='mr-2' /> : <FaAngleDown className='mr-2' />}
         {header}
       </div>
       <Transition
         show={expanded}
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+        enter='transition-opacity duration-300'
+        enterFrom='opacity-0'
+        enterTo='opacity-100'
+        leave='transition-opacity duration-300'
+        leaveFrom='opacity-100'
+        leaveTo='opacity-0'
       >
-        <div className="border border-t-0 border-poimandres-midslate p-2">
-          {children}
-        </div>
+        <div className='border border-t-0 border-poimandres-midslate p-2'>{children}</div>
       </Transition>
     </div>
   );

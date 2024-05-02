@@ -6,10 +6,7 @@ type PanelProps = PropsWithChildren<{
 }>;
 
 function Panel({ children, className, ...rest }: PanelProps) {
-  const finalClassNames = classNames(
-    'border rounded p-3 shadow bg-white w-full',
-    className
-  );
+  const finalClassNames = classNames('border rounded p-3 shadow bg-white w-full', className);
 
   return (
     <div className={finalClassNames} {...rest}>

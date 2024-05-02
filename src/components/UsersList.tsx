@@ -7,31 +7,24 @@ import UsersListItem from './UsersListItem';
 
 const UsersList = () => {
   const users = useAppSelector(({ users: { data } }) => data);
-  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
-    useThunk(fetchUsers);
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] = useThunk(fetchUsers);
 
   useEffect(() => {
     doFetchUsers();
   }, [doFetchUsers]);
 
   if (isLoadingUsers) {
-    return <Skeleton times={5} className="mb-4 mt-2 h-10 w-full" />;
+    return <Skeleton times={5} className='mb-4 mt-2 h-10 w-full' />;
   }
 
   if (loadingUsersError) {
-    return (
-      <span className="text-poimandres-lightpink">
-        {loadingUsersError.message}
-      </span>
-    );
+    return <span className='text-poimandres-lightpink'>{loadingUsersError.message}</span>;
   }
 
   return (
     <div>
       {users.length
-        ? users.map(({ name, id }) => (
-            <UsersListItem name={name} id={id} key={id} />
-          ))
+        ? users.map(({ name, id }) => <UsersListItem name={name} id={id} key={id} />)
         : 'No users yet'}
     </div>
   );

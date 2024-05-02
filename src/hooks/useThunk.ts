@@ -7,9 +7,7 @@ type UseThunkReturns = [(id?: string) => void, boolean, AxiosError | null];
 
 const useThunk = (thunk: AsyncThunk<any, any, any>): UseThunkReturns => {
   const [isLoadingThunk, setIsLoadingThunk] = useState(false);
-  const [loadingThunkError, setLoadingThunkError] = useState<AxiosError | null>(
-    null
-  );
+  const [loadingThunkError, setLoadingThunkError] = useState<AxiosError | null>(null);
 
   const dispatch = useAppDispatch();
 

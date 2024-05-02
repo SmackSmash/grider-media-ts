@@ -20,9 +20,4 @@ const store = configureStore({
   }
 });
 
-const dan = {
-  name: 'Dan',
-  age: 37
-};
-
 export default store;

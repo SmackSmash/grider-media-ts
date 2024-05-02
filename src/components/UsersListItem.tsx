@@ -11,8 +11,7 @@ interface UsersListItemProps {
 }
 
 const UsersListItem = ({ name, id }: UsersListItemProps) => {
-  const [doDeleteUser, isDeletingUser, deletingUserError] =
-    useThunk(deleteUser);
+  const [doDeleteUser, isDeletingUser, deletingUserError] = useThunk(deleteUser);
 
   const handleDelete = (id: string, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -23,7 +22,7 @@ const UsersListItem = ({ name, id }: UsersListItemProps) => {
     <>
       {name}
       <Button
-        className="ml-auto"
+        className='ml-auto'
         danger
         loading={isDeletingUser}
         onClick={e => handleDelete(id, e)}
