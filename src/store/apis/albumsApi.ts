@@ -30,3 +30,5 @@ export const {
   useCreateAlbumQuery,
   useDeleteAlbumQuery,
 } = albumsApi;
+
+export default albumsApi;
