@@ -12,6 +12,6 @@
   "proseWrap": "always",
   "quoteProps": "as-needed",
   "useTabs": false,
-  "jsxBracketSameLine": false,
+  "bracketSameLine": false,
   "jsxSingleQuote": true
 }
