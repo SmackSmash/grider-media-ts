@@ -5,7 +5,7 @@ import { deleteUser } from '../';
 
 interface User {
   name: string;
-  id: string;
+  _id: string;
 }
 
 interface UsersState {
@@ -56,7 +56,7 @@ const usersSlice = createSlice({
     builder.addCase(deleteUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data.splice(
-        state.data.findIndex(user => user.id === action.payload.id),
+        state.data.findIndex(user => user._id === action.payload.id),
         1
       );
     });
