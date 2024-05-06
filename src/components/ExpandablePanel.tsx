@@ -16,7 +16,7 @@ const ExpandablePanel = ({ header, children }: ExpandablePanelProps) => {
   return (
     <div className='mb-4'>
       <div
-        className='flex h-10 w-full flex-row items-center border border-poimandres-midslate pl-2 hover:cursor-pointer hover:bg-poimandres-darkslate'
+        className='flex h-14 w-full flex-row items-center border border-poimandres-midslate pl-2 hover:cursor-pointer hover:bg-poimandres-darkslate'
         onClick={handleClick}
       >
         {expanded ? <FaAngleUp className='mr-2' /> : <FaAngleDown className='mr-2' />}

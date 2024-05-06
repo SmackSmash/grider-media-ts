@@ -4,8 +4,10 @@ import { addUser } from '../';
 import { deleteUser } from '../';
 
 interface User {
-  name: string;
   _id: string;
+  name: string;
+  email: string;
+  image: string;
 }
 
 interface UsersState {
