@@ -9,6 +9,12 @@ export * from './thunks/deleteUser';
 
 import albumsApi from './apis/albumsApi';
 
+export {
+  useGetAlbumsByUserIdQuery,
+  useCreateAlbumForUserQuery,
+  useDeleteAlbumQuery
+} from './apis/albumsApi';
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export * from './hooks';
@@ -17,7 +23,10 @@ const store = configureStore({
   reducer: {
     users,
     [albumsApi.reducerPath]: albumsApi.reducer
-  }
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(albumsApi.middleware)
 });
+
+setupListeners(store.dispatch);
 
 export default store;
