@@ -12,7 +12,7 @@ const albumsApi = createApi({
   endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album, string>({
       query: userId => ({
-        url: `albums?userId=${userId}`,
+        url: `albums/${userId}`,
         method: 'GET'
       })
     }),
