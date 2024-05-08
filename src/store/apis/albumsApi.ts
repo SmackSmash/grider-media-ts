@@ -16,8 +16,8 @@ const albumsApi = createApi({
         method: 'GET'
       })
     }),
-    createAlbum: builder.query<Album, string>({
-      query: () => ({ url: 'albums', method: 'POST' })
+    createAlbumForUser: builder.query<Album, string>({
+      query: userId => ({ url: `albums/${userId}`, method: 'POST' })
     }),
     deleteAlbum: builder.query<Album, string>({
       query: id => ({ url: `albums/${id}`, method: 'DELETE' })
