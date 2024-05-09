@@ -1,4 +1,5 @@
 import { useGetAlbumsByUserIdQuery } from '../store';
+import Button from './Button';
 interface AlbumsListProps {
   id: string;
 }
@@ -19,6 +20,9 @@ const AlbumsList = ({ id }: AlbumsListProps) => {
   return (
     <div>
       {data!.length ? data!.map(({ title, _id }) => <p key={_id}>{title}</p>) : 'No albums found'}
+      <Button className='mt-4' success>
+        + Add Album
+      </Button>
     </div>
   );
 };
