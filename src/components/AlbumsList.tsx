@@ -7,11 +7,12 @@ interface AlbumsListProps {
 }
 
 const AlbumsList = ({ userId }: AlbumsListProps) => {
-  const { data, error, isLoading } = useGetAlbumsByUserIdQuery(userId);
+  const { data, isError, isLoading, refetch } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum, results] = useCreateAlbumForUserMutation();
 
-  const handleClick = () => {
-    createAlbum(userId);
+  const handleClick = async () => {
+    await createAlbum(userId);
+    refetch();
   };
 
   const albumsHeader = (
@@ -32,7 +33,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     );
   }
 
-  if (error) {
+  if (isError) {
     return (
       <>
         {albumsHeader}
