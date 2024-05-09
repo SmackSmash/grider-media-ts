@@ -8,19 +8,16 @@ export interface Album {
 
 const albumsApi = createApi({
   reducerPath: 'albums',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/albums' }),
   endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album[], string>({
-      query: userId => ({
-        url: `albums/${userId}`,
-        method: 'GET'
-      })
+      query: userId => ({ url: `/${userId}`, method: 'GET' })
     }),
     createAlbumForUser: builder.mutation<Album, string>({
-      query: userId => ({ url: `albums/${userId}`, method: 'POST' })
+      query: userId => ({ url: `/${userId}`, method: 'POST' })
     }),
     deleteAlbum: builder.mutation<Album, string>({
-      query: id => ({ url: `albums/${id}`, method: 'DELETE' })
+      query: id => ({ url: `/${id}`, method: 'DELETE' })
     })
   })
 });
