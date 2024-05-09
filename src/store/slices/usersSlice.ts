@@ -3,7 +3,7 @@ import { fetchUsers } from '../';
 import { addUser } from '../';
 import { deleteUser } from '../';
 
-interface User {
+export interface User {
   _id: string;
   name: string;
   email: string;

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-interface Album {
+export interface Album {
   _id: string;
   userId: string;
   title: string;
