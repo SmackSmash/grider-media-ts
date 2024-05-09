@@ -22,7 +22,7 @@ const UsersListItem = ({ name, id, email, image }: UsersListItemProps) => {
 
   const header = (
     <>
-      <div className='mr-2 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full'>
+      <div className='mr-2 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border-2 border-poimandres-midslate'>
         <img
           className='h-full w-full object-cover'
           src={`http://localhost:3000/images/profile/${image}.jpg`}
