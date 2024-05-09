@@ -17,7 +17,7 @@ const albumsApi = createApi({
       query: userId => ({ url: `/${userId}`, method: 'POST' })
     }),
     deleteAlbum: builder.mutation<Album, string>({
-      query: id => ({ url: `/${id}`, method: 'DELETE' })
+      query: albumId => ({ url: `/${albumId}`, method: 'DELETE' })
     })
   })
 });
