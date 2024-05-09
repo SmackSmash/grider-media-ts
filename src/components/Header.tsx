@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className='mb-4 flex items-center justify-between border-b-2 border-poimandres-darkgreen pb-4'>
-      <h1 className='text-2xl font-bold'>User List</h1>
+      <h1 className='text-2xl font-bold'>Artist List</h1>
       {creatingUserError ? (
         <span className='text-poimandres-lightpink'>{creatingUserError.message}</span>
       ) : (
