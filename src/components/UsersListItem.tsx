@@ -6,13 +6,13 @@ import { type MouseEvent } from 'react';
 import AlbumsList from './AlbumsList';
 
 interface UsersListItemProps {
-  id: string;
+  userId: string;
   name: string;
   email: string;
   image: string;
 }
 
-const UsersListItem = ({ name, id, email, image }: UsersListItemProps) => {
+const UsersListItem = ({ name, userId, email, image }: UsersListItemProps) => {
   const [doDeleteUser, isDeletingUser, deletingUserError] = useThunk(deleteUser);
 
   const handleDelete = (id: string, e: MouseEvent<HTMLButtonElement>) => {
@@ -35,7 +35,7 @@ const UsersListItem = ({ name, id, email, image }: UsersListItemProps) => {
         className='ml-auto mr-2'
         danger
         loading={isDeletingUser}
-        onClick={e => handleDelete(id, e)}
+        onClick={e => handleDelete(userId, e)}
       >
         {deletingUserError ? 'Oopsy!' : 'Delete'}
       </Button>
@@ -44,7 +44,7 @@ const UsersListItem = ({ name, id, email, image }: UsersListItemProps) => {
 
   return (
     <ExpandablePanel header={header}>
-      <AlbumsList id={id} />
+      <AlbumsList userId={userId} />
     </ExpandablePanel>
   );
 };

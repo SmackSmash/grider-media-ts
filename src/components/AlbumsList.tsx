@@ -1,15 +1,15 @@
 import { useGetAlbumsByUserIdQuery, useCreateAlbumForUserMutation } from '../store';
 import Button from './Button';
 interface AlbumsListProps {
-  id: string;
+  userId: string;
 }
 
-const AlbumsList = ({ id }: AlbumsListProps) => {
-  const { data, error, isLoading } = useGetAlbumsByUserIdQuery(id);
+const AlbumsList = ({ userId }: AlbumsListProps) => {
+  const { data, error, isLoading } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum] = useCreateAlbumForUserMutation();
 
-  const handleClick = (id: string) => {
-    createAlbum(id);
+  const handleClick = () => {
+    createAlbum(userId);
   };
 
   if (isLoading) {
@@ -23,7 +23,7 @@ const AlbumsList = ({ id }: AlbumsListProps) => {
   return (
     <div>
       {data!.length ? data!.map(({ title, _id }) => <p key={_id}>{title}</p>) : 'No albums found'}
-      <Button className='mt-4' success onClick={() => handleClick(id)}>
+      <Button className='mt-4' success onClick={handleClick}>
         + Add Album
       </Button>
     </div>
