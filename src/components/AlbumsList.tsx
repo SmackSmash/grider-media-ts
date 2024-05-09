@@ -7,15 +7,11 @@ interface AlbumsListProps {
 }
 
 const AlbumsList = ({ userId }: AlbumsListProps) => {
-  const { data, isError, isLoading, refetch } = useGetAlbumsByUserIdQuery(userId);
+  const { data, isError, isLoading } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum, results] = useCreateAlbumForUserMutation();
 
   const handleClick = async () => {
     await createAlbum(userId);
-    console.log(results);
-    if (results.isError === false) {
-      refetch();
-    }
   };
 
   const albumsHeader = (
