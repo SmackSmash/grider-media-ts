@@ -12,7 +12,10 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
 
   const handleClick = async () => {
     await createAlbum(userId);
-    refetch();
+    console.log(results);
+    if (results.isError === false) {
+      refetch();
+    }
   };
 
   const albumsHeader = (
