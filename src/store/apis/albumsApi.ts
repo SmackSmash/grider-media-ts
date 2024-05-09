@@ -13,15 +13,15 @@ const albumsApi = createApi({
   endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album[], string>({
       query: userId => ({ url: `/${userId}`, method: 'GET' }),
-      providesTags: (_result, _error, arg) => [{ type: 'Album', id: arg }]
+      providesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
     }),
     createAlbumForUser: builder.mutation<Album, string>({
       query: userId => ({ url: `/${userId}`, method: 'POST' }),
-      invalidatesTags: (_result, _error, arg) => [{ type: 'Album', id: arg }]
+      invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
     }),
     deleteAlbum: builder.mutation<Album, string>({
       query: albumId => ({ url: `/${albumId}`, method: 'DELETE' }),
-      invalidatesTags: (_result, _error, arg) => [{ type: 'Album', id: arg }]
+      invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
     })
   })
 });
