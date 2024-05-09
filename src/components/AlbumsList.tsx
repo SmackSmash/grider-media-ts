@@ -8,7 +8,7 @@ interface AlbumsListProps {
 
 const AlbumsList = ({ userId }: AlbumsListProps) => {
   const { data, error, isLoading } = useGetAlbumsByUserIdQuery(userId);
-  const [createAlbum] = useCreateAlbumForUserMutation();
+  const [createAlbum, results] = useCreateAlbumForUserMutation();
 
   const handleClick = () => {
     createAlbum(userId);
@@ -17,7 +17,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
   const albumsHeader = (
     <div className='mb-4 mt-2 flex items-center'>
       <h2>Albums</h2>
-      <Button className='ml-auto mr-2' success onClick={handleClick}>
+      <Button className='ml-auto mr-2' success loading={results.isLoading} onClick={handleClick}>
         + Add Album
       </Button>
     </div>
