@@ -1,16 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface Album {
-  id: string;
-  title: string;
+  _id: string;
   userId: string;
+  title: string;
 }
 
 const albumsApi = createApi({
   reducerPath: 'albums',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
   endpoints: builder => ({
-    getAlbumsByUserId: builder.query<Album, string>({
+    getAlbumsByUserId: builder.query<Album[], string>({
       query: userId => ({
         url: `albums/${userId}`,
         method: 'GET'
