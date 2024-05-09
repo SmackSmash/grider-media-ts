@@ -16,16 +16,16 @@ const albumsApi = createApi({
         method: 'GET'
       })
     }),
-    createAlbumForUser: builder.query<Album, string>({
+    createAlbumForUser: builder.mutation<Album, string>({
       query: userId => ({ url: `albums/${userId}`, method: 'POST' })
     }),
-    deleteAlbum: builder.query<Album, string>({
+    deleteAlbum: builder.mutation<Album, string>({
       query: id => ({ url: `albums/${id}`, method: 'DELETE' })
     })
   })
 });
 
-export const { useGetAlbumsByUserIdQuery, useCreateAlbumForUserQuery, useDeleteAlbumQuery } =
+export const { useGetAlbumsByUserIdQuery, useCreateAlbumForUserMutation, useDeleteAlbumMutation } =
   albumsApi;
 
 export default albumsApi;

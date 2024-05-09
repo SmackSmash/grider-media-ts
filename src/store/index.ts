@@ -11,8 +11,8 @@ import albumsApi from './apis/albumsApi';
 
 export {
   useGetAlbumsByUserIdQuery,
-  useCreateAlbumForUserQuery,
-  useDeleteAlbumQuery
+  useCreateAlbumForUserMutation,
+  useDeleteAlbumMutation
 } from './apis/albumsApi';
 
 export type RootState = ReturnType<typeof store.getState>;
