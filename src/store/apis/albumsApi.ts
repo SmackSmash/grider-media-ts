@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { delay } from '../../utils';
 
 export interface Album {
   _id: string;
@@ -8,7 +9,13 @@ export interface Album {
 
 const albumsApi = createApi({
   reducerPath: 'albums',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/albums' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'http://localhost:3000/albums',
+    fetchFn: async (...args) => {
+      await delay(1000);
+      return fetch(...args);
+    }
+  }),
   tagTypes: ['Album'],
   endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album[], string>({
