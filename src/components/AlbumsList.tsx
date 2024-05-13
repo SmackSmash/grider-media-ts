@@ -41,7 +41,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
         loading={results.isLoading}
         onClick={() => handleDeleteAlbum(albumId)}
       >
-        + Delete Album
+        Delete Album
       </Button>
     </div>
   );

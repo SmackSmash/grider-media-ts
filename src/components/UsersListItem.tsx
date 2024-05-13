@@ -37,7 +37,7 @@ const UsersListItem = ({ name, userId, email, image }: UsersListItemProps) => {
         loading={isDeletingUser}
         onClick={e => handleDelete(userId, e)}
       >
-        {deletingUserError ? 'Oopsy!' : 'Delete'}
+        {deletingUserError ? 'Oopsy!' : 'Delete User'}
       </Button>
     </>
   );
