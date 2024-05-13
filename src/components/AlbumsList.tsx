@@ -27,7 +27,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     return (
       <>
         {albumsHeader}
-        <Skeleton times={3} className='mb-4 mt-2 h-10 w-full' />;
+        <Skeleton times={3} className='mb-4 mt-2 h-10 w-full' />
       </>
     );
   }
@@ -36,7 +36,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     return (
       <>
         {albumsHeader}
-        <div>Something went wrong</div>;
+        <div>Something went wrong</div>
       </>
     );
   }
