@@ -27,10 +27,10 @@ const albumsApi = createApi({
       invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
     }),
     deleteAlbum: builder.mutation<Album, string>({
-      query: albumId => ({ url: `/${albumId}`, method: 'DELETE' }),
+      query: albumId => ({ url: `/${albumId}`, method: 'DELETE' })
       // TODO: Take userId and albumId as arguments so you can delete the album
       //       and rerender only the affiliated user.
-      invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
+      // invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
     })
   })
 });
