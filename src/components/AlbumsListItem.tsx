@@ -12,7 +12,7 @@ type AlbumsListItemProps = PropsWithChildren<{
 const AlbumsListItem = ({ title, userId, albumId, children }: AlbumsListItemProps) => {
   const [deleteAlbum, deleteAlbumResults] = useDeleteAlbumMutation();
 
-  const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
+  const handleDeleteAlbum = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     deleteAlbum({ albumId, userId });
   };
@@ -26,7 +26,7 @@ const AlbumsListItem = ({ title, userId, albumId, children }: AlbumsListItemProp
         loading={
           deleteAlbumResults.isLoading && deleteAlbumResults.originalArgs?.albumId === albumId
         }
-        onClick={e => handleDeleteAlbum(albumId, e)}
+        onClick={handleDeleteAlbum}
       >
         Delete Album
       </Button>
