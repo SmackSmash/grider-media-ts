@@ -15,7 +15,6 @@ const AlbumsListItem = ({ title, userId, albumId, children }: AlbumsListItemProp
   const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     deleteAlbum({ albumId, userId });
-    console.log(deleteAlbumResults);
   };
 
   const albumHeader = (
