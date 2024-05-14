@@ -22,7 +22,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
 
   const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    deleteAlbum(albumId);
+    deleteAlbum({ albumId, userId });
   };
 
   const albumsHeader = (
