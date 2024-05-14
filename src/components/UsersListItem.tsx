@@ -15,9 +15,9 @@ interface UsersListItemProps {
 const UsersListItem = ({ name, userId, email, image }: UsersListItemProps) => {
   const [doDeleteUser, isDeletingUser, deletingUserError] = useThunk(deleteUser);
 
-  const handleDelete = (id: string, e: MouseEvent<HTMLButtonElement>) => {
+  const handleDeleteUser = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    doDeleteUser(id);
+    doDeleteUser(userId);
   };
 
   const header = (
@@ -31,12 +31,7 @@ const UsersListItem = ({ name, userId, email, image }: UsersListItemProps) => {
       </div>
       <h2>{name}</h2>
       <span className='ml-2 text-xs text-poimandres-midslate'>{email}</span>
-      <Button
-        className='ml-auto mr-2'
-        danger
-        loading={isDeletingUser}
-        onClick={e => handleDelete(userId, e)}
-      >
+      <Button className='ml-auto mr-2' danger loading={isDeletingUser} onClick={handleDeleteUser}>
         {deletingUserError ? 'Oopsy!' : 'Delete User'}
       </Button>
     </>
