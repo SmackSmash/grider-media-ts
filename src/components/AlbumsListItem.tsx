@@ -23,9 +23,7 @@ const AlbumsListItem = ({ title, userId, albumId, children }: AlbumsListItemProp
       <Button
         className='ml-auto mr-2'
         warning
-        loading={
-          deleteAlbumResults.isLoading && deleteAlbumResults.originalArgs?.albumId === albumId
-        }
+        loading={deleteAlbumResults.isLoading}
         onClick={handleDeleteAlbum}
       >
         Delete Album
