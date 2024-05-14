@@ -1,12 +1,7 @@
-import { type MouseEvent } from 'react';
-import {
-  useGetAlbumsByUserIdQuery,
-  useCreateAlbumForUserMutation,
-  useDeleteAlbumMutation
-} from '../store';
+import { useGetAlbumsByUserIdQuery, useCreateAlbumForUserMutation } from '../store';
 import Skeleton from './Skeleton';
-import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
+import AlbumsListItem from './AlbumsListItem';
 interface AlbumsListProps {
   userId: string;
 }
@@ -14,16 +9,9 @@ interface AlbumsListProps {
 const AlbumsList = ({ userId }: AlbumsListProps) => {
   const { data, isError, isLoading } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum, createAlbumResults] = useCreateAlbumForUserMutation();
-  const [deleteAlbum, deleteAlbumResults] = useDeleteAlbumMutation();
 
   const handleCreateAlbum = () => {
     createAlbum(userId);
-  };
-
-  const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    deleteAlbum({ albumId, userId });
-    console.log(deleteAlbumResults);
   };
 
   const albumsHeader = (
@@ -36,22 +24,6 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
         onClick={handleCreateAlbum}
       >
         + Add Album
-      </Button>
-    </div>
-  );
-
-  const albumHeader = (title: string, albumId: string) => (
-    <div className='flex w-full items-center'>
-      <h3>{title}</h3>
-      <Button
-        className='ml-auto mr-2'
-        warning
-        loading={
-          deleteAlbumResults.isLoading && deleteAlbumResults.originalArgs?.albumId === albumId
-        }
-        onClick={e => handleDeleteAlbum(albumId, e)}
-      >
-        Delete Album
       </Button>
     </div>
   );
@@ -79,9 +51,9 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
       {albumsHeader}
       {data!.length
         ? data!.map(({ title, _id }) => (
-            <ExpandablePanel header={albumHeader(title, _id)} key={_id}>
+            <AlbumsListItem title={title} userId={userId} albumId={_id} key={_id}>
               {title}
-            </ExpandablePanel>
+            </AlbumsListItem>
           ))
         : 'No albums found'}
     </div>
