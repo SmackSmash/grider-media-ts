@@ -1,4 +1,8 @@
-import { useGetAlbumsByUserIdQuery, useCreateAlbumForUserMutation } from '../store';
+import {
+  useGetAlbumsByUserIdQuery,
+  useCreateAlbumForUserMutation,
+  useDeleteAlbumMutation
+} from '../store';
 import Skeleton from './Skeleton';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
@@ -8,14 +12,15 @@ interface AlbumsListProps {
 
 const AlbumsList = ({ userId }: AlbumsListProps) => {
   const { data, isError, isLoading } = useGetAlbumsByUserIdQuery(userId);
-  const [createAlbum, results] = useCreateAlbumForUserMutation();
+  const [createAlbum, createAlbumResults] = useCreateAlbumForUserMutation();
+  const [deleteAlbum, deleteAlbumResults] = useDeleteAlbumMutation();
 
-  const handleCreateAlbum = async () => {
-    await createAlbum(userId);
+  const handleCreateAlbum = () => {
+    createAlbum(userId);
   };
 
   const handleDeleteAlbum = (albumId: string) => {
-    console.log(`Delete album with ID of ${albumId}`);
+    deleteAlbum(albumId);
   };
 
   const albumsHeader = (
@@ -24,7 +29,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
       <Button
         className='ml-auto mr-2'
         success
-        loading={results.isLoading}
+        loading={createAlbumResults.isLoading}
         onClick={handleCreateAlbum}
       >
         + Add Album
@@ -38,7 +43,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
       <Button
         className='ml-auto mr-2'
         warning
-        loading={results.isLoading}
+        loading={deleteAlbumResults.isLoading}
         onClick={() => handleDeleteAlbum(albumId)}
       >
         Delete Album
