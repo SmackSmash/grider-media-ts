@@ -1,3 +1,4 @@
+import { type MouseEvent } from 'react';
 import {
   useGetAlbumsByUserIdQuery,
   useCreateAlbumForUserMutation,
@@ -19,7 +20,8 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     createAlbum(userId);
   };
 
-  const handleDeleteAlbum = (albumId: string) => {
+  const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     deleteAlbum(albumId);
   };
 
@@ -44,7 +46,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
         className='ml-auto mr-2'
         warning
         loading={deleteAlbumResults.isLoading}
-        onClick={() => handleDeleteAlbum(albumId)}
+        onClick={e => handleDeleteAlbum(albumId, e)}
       >
         Delete Album
       </Button>
