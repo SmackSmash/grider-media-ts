@@ -1,4 +1,4 @@
-import { type PropsWithChildren, MouseEvent } from 'react';
+import { type PropsWithChildren, type MouseEvent } from 'react';
 import { useDeleteAlbumMutation } from '../store';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
