@@ -23,6 +23,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
   const handleDeleteAlbum = (albumId: string, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     deleteAlbum({ albumId, userId });
+    console.log(deleteAlbumResults);
   };
 
   const albumsHeader = (
@@ -45,7 +46,9 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
       <Button
         className='ml-auto mr-2'
         warning
-        loading={deleteAlbumResults.isLoading}
+        loading={
+          deleteAlbumResults.isLoading && deleteAlbumResults.originalArgs?.albumId === albumId
+        }
         onClick={e => handleDeleteAlbum(albumId, e)}
       >
         Delete Album
