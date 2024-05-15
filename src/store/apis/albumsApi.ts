@@ -16,11 +16,14 @@ const albumsApi = createApi({
       return fetch(...args);
     }
   }),
-  tagTypes: ['Album'],
+  tagTypes: ['Album', 'UsersAlbums'],
   endpoints: builder => ({
     getAlbumsByUserId: builder.query<Album[], string>({
       query: userId => ({ url: `/${userId}`, method: 'GET' }),
-      providesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
+      providesTags: (result, _error, userId) => {
+        const tags = result!.map(({ _id }) => ({ type: 'Album' as const, id: _id }));
+        return [...tags, { type: 'UsersAlbums', id: userId }];
+      }
     }),
     createAlbumForUser: builder.mutation<Album, string>({
       query: userId => ({ url: `/${userId}`, method: 'POST' }),
