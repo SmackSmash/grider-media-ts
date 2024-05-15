@@ -50,9 +50,9 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     <div>
       {albumsHeader}
       {data!.length
-        ? data!.map(({ title, userId, _id }) => (
-            <AlbumsListItem title={title} userId={userId} albumId={_id} key={_id}>
-              {title}
+        ? data!.map(album => (
+            <AlbumsListItem album={album} key={album._id}>
+              {album.title}
             </AlbumsListItem>
           ))
         : 'No albums found'}
