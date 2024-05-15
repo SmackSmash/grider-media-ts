@@ -10,8 +10,6 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
   const { data, isError, isLoading } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum, createAlbumResults] = useCreateAlbumForUserMutation();
 
-  console.log(createAlbumResults);
-
   const handleCreateAlbum = () => {
     createAlbum(userId);
   };
