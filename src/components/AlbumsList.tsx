@@ -7,7 +7,7 @@ interface AlbumsListProps {
 }
 
 const AlbumsList = ({ userId }: AlbumsListProps) => {
-  const { data, isError, isLoading } = useGetAlbumsByUserIdQuery(userId);
+  const { data, isError, isFetching } = useGetAlbumsByUserIdQuery(userId);
   const [createAlbum, createAlbumResults] = useCreateAlbumForUserMutation();
 
   const handleCreateAlbum = () => {
@@ -28,7 +28,7 @@ const AlbumsList = ({ userId }: AlbumsListProps) => {
     </div>
   );
 
-  if (isLoading) {
+  if (isFetching) {
     return (
       <>
         {albumsHeader}
