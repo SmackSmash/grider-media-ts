@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+// import { delay } from '../../utils';
 export interface Album {
   _id: string;
   userId: string;
@@ -10,6 +11,7 @@ const albumsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3000/albums',
     fetchFn: async (...args) => {
+      // await delay(1000);
       return fetch(...args);
     }
   }),
@@ -24,11 +26,11 @@ const albumsApi = createApi({
     }),
     createAlbumForUser: builder.mutation<Album, string>({
       query: userId => ({ url: `/${userId}`, method: 'POST' }),
-      invalidatesTags: (_result, _error, userId) => [{ type: 'Album', id: userId }]
+      invalidatesTags: (_result, _error, userId) => [{ type: 'UsersAlbums' as const, id: userId }]
     }),
     deleteAlbum: builder.mutation<Album, Album>({
       query: ({ _id }) => ({ url: `/${_id}`, method: 'DELETE' }),
-      invalidatesTags: (_result, _error, { userId }) => [{ type: 'Album', id: userId }]
+      invalidatesTags: (_result, _error, { _id }) => [{ type: 'Album', id: _id }]
     })
   })
 });
