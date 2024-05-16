@@ -3,11 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 
 import users from './slices/usersSlice';
 import albumsApi from './apis/albumsApi';
+import singlesApi from './apis/singlesApi';
 
 const store = configureStore({
   reducer: {
     users,
-    [albumsApi.reducerPath]: albumsApi.reducer
+    [albumsApi.reducerPath]: albumsApi.reducer,
+    [singlesApi.reducerPath]: singlesApi.reducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(albumsApi.middleware)
 });
@@ -22,6 +24,7 @@ export {
   useCreateAlbumForUserMutation,
   useDeleteAlbumMutation
 } from './apis/albumsApi';
+export { useGetSinglesByAlbumIdQuery } from './apis/singlesApi';
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export * from './hooks';
