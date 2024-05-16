@@ -13,7 +13,7 @@ const SinglesListItem = ({ single: { title, image } }: SinglesListItemProps) => 
           src={`http://localhost:3000/images/singles/${image}.jpg`}
           alt={title}
         />
-        <h3 className='py z-10 bg-poimandres-blackslate px-2 py-1 text-poimandres-lightgreen'>
+        <h3 className='py z-10 bg-poimandres-blackslate px-2 py-1 text-poimandres-yellow'>
           {title}
         </h3>
       </div>

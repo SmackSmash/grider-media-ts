@@ -11,7 +11,20 @@ const SinglesList = ({ album }: SinglesListProps) => {
   const { data, error, isFetching } = useGetSinglesByAlbumIdQuery(album._id);
 
   if (isFetching) {
-    return <Skeleton className='h-10 w-10' times={3} />;
+    return (
+      <div className='flex flex-wrap'>
+        <div className='aspect-square w-1/2 p-4'>
+          <div className='relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl'>
+            <Skeleton className='h-full w-full' times={1} />
+          </div>
+        </div>
+        <div className='aspect-square w-1/2 p-4'>
+          <div className='relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl'>
+            <Skeleton className='h-full w-full' times={1} />
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
