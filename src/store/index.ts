@@ -11,7 +11,8 @@ const store = configureStore({
     [albumsApi.reducerPath]: albumsApi.reducer,
     [singlesApi.reducerPath]: singlesApi.reducer
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(albumsApi.middleware)
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(albumsApi.middleware).concat(singlesApi.middleware)
 });
 
 setupListeners(store.dispatch);
