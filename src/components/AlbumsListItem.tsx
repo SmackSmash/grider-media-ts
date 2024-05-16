@@ -1,14 +1,15 @@
-import { type PropsWithChildren, type MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 import { useDeleteAlbumMutation } from '../store';
 import { type Album } from '../store/apis/albumsApi';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
+import SinglesList from './SinglesList';
 
-type AlbumsListItemProps = PropsWithChildren<{
+interface AlbumsListItemProps {
   album: Album;
-}>;
+}
 
-const AlbumsListItem = ({ album, children }: AlbumsListItemProps) => {
+const AlbumsListItem = ({ album }: AlbumsListItemProps) => {
   const [deleteAlbum, deleteAlbumResults] = useDeleteAlbumMutation();
 
   const handleDeleteAlbum = (e: MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +31,11 @@ const AlbumsListItem = ({ album, children }: AlbumsListItemProps) => {
     </div>
   );
 
-  return <ExpandablePanel header={albumHeader}>{children}</ExpandablePanel>;
+  return (
+    <ExpandablePanel header={albumHeader}>
+      <SinglesList album={album} />
+    </ExpandablePanel>
+  );
 };
 
 export default AlbumsListItem;

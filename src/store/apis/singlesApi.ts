@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-interface Single {
+export interface Single {
   title: string;
   image: string;
   albumId: string;
