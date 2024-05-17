@@ -1,5 +1,5 @@
 import { type Album } from '../store/apis/albumsApi';
-import { useGetSinglesByAlbumIdQuery } from '../store';
+import { useCreateSingleForAlbumMutation, useGetSinglesByAlbumIdQuery } from '../store';
 import Skeleton from './Skeleton';
 import SinglesListItem from './SinglesListItem';
 import Button from './Button';
@@ -10,11 +10,16 @@ interface SinglesListProps {
 
 const SinglesList = ({ album }: SinglesListProps) => {
   const { data, error, isFetching } = useGetSinglesByAlbumIdQuery(album._id);
+  const [createSingle] = useCreateSingleForAlbumMutation();
+
+  const handleCreateSingle = () => {
+    createSingle(album._id);
+  };
 
   const singlesHeader = (
     <div className='flex w-full'>
       <h3>Singles</h3>
-      <Button className='ml-auto' success>
+      <Button className='ml-auto' success onClick={handleCreateSingle}>
         + Add Single
       </Button>
     </div>

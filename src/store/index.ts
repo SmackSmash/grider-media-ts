@@ -25,7 +25,7 @@ export {
   useCreateAlbumForUserMutation,
   useDeleteAlbumMutation
 } from './apis/albumsApi';
-export { useGetSinglesByAlbumIdQuery } from './apis/singlesApi';
+export { useGetSinglesByAlbumIdQuery, useCreateSingleForAlbumMutation } from './apis/singlesApi';
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export * from './hooks';

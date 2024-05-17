@@ -17,16 +17,23 @@ const singlesApi = createApi({
       return fetch(...args);
     }
   }),
+  tagTypes: ['Single'],
   endpoints: builder => ({
     getSinglesByAlbumId: builder.query<Single[], string>({
       query: albumId => ({
         url: `singles/${albumId}`,
         method: 'GET'
       })
+    }),
+    createSingleForAlbum: builder.mutation<Single, string>({
+      query: albumId => ({
+        url: `singles/${albumId}`,
+        method: 'POST'
+      })
     })
   })
 });
 
-export const { useGetSinglesByAlbumIdQuery } = singlesApi;
+export const { useGetSinglesByAlbumIdQuery, useCreateSingleForAlbumMutation } = singlesApi;
 
 export default singlesApi;
