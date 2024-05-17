@@ -28,11 +28,21 @@ const singlesApi = createApi({
     }),
     createSingleForAlbum: builder.mutation<Single, string>({
       query: albumId => ({ url: `singles/${albumId}`, method: 'POST' }),
-      invalidatesTags: (_result, _error, albumId) => [{ type: 'AlbumsSingles', id: albumId }]
+      invalidatesTags: (_result, _error, albumId) => [
+        { type: 'AlbumsSingles' as const, id: albumId }
+      ]
+    }),
+    deleteSingle: builder.mutation<Single, Single>({
+      query: ({ _id }) => ({ url: `singles/${_id}`, method: 'DELETE' }),
+      invalidatesTags: (_result, _error, { _id }) => [{ type: 'Single' as const, id: _id }]
     })
   })
 });
 
-export const { useGetSinglesByAlbumIdQuery, useCreateSingleForAlbumMutation } = singlesApi;
+export const {
+  useGetSinglesByAlbumIdQuery,
+  useCreateSingleForAlbumMutation,
+  useDeleteSingleMutation
+} = singlesApi;
 
 export default singlesApi;

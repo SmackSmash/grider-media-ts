@@ -30,7 +30,7 @@ const albumsApi = createApi({
     }),
     deleteAlbum: builder.mutation<Album, Album>({
       query: ({ _id }) => ({ url: `/${_id}`, method: 'DELETE' }),
-      invalidatesTags: (_result, _error, { _id }) => [{ type: 'Album', id: _id }]
+      invalidatesTags: (_result, _error, { _id }) => [{ type: 'Album' as const, id: _id }]
     })
   })
 });
