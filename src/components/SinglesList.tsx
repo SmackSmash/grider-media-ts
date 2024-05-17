@@ -10,7 +10,7 @@ interface SinglesListProps {
 
 const SinglesList = ({ album }: SinglesListProps) => {
   const { data, error, isFetching } = useGetSinglesByAlbumIdQuery(album._id);
-  const [createSingle] = useCreateSingleForAlbumMutation();
+  const [createSingle, createSingleResults] = useCreateSingleForAlbumMutation();
 
   const handleCreateSingle = () => {
     createSingle(album._id);
@@ -19,7 +19,12 @@ const SinglesList = ({ album }: SinglesListProps) => {
   const singlesHeader = (
     <div className='flex w-full'>
       <h3>Singles</h3>
-      <Button className='ml-auto' success onClick={handleCreateSingle}>
+      <Button
+        className='ml-auto'
+        success
+        loading={createSingleResults.isLoading}
+        onClick={handleCreateSingle}
+      >
         + Add Single
       </Button>
     </div>
