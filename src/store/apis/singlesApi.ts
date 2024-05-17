@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { delay } from '../../utils';
+// import { delay } from '../../utils';
 
 export interface Single {
   title: string;
@@ -13,7 +13,7 @@ const singlesApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3000/',
     fetchFn: async (...args) => {
-      await delay(5000);
+      // await delay(5000);
       return fetch(...args);
     }
   }),
